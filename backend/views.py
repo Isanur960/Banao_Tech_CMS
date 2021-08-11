@@ -7,13 +7,23 @@ from django.contrib.auth.models import User
 from . models import Airticle
 from django.contrib.auth import authenticate, login, logout
 import random
+import string
 
 # Create your views here.
 
 
 def validate_pwd(pwd):
     if len(pwd)>=8:
-        if pwd.isalnum():
+        A,N = 0,0
+        pwd = pwd.lower()
+        for s in pwd:
+            if s in string.ascii_lowercase:
+                A = A +1
+            elif s in string.digits:
+                N = N +1
+            else:
+                pass
+        if A > 0 and N > 0:
             return "valid"
         else:
             return "invalid"
