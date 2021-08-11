@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% block contents %}
+{% if request.user.is_authenticated %}
+<h1> You are already signed up and logged in</h1>
+<a class="btn btn-success" href="/logout" role="button">Logout</a>
+{% else %}
+<div class="p-10">
+  <form method="post" action="/signup">
+  {% csrf_token %}
+    <div class="row mb-3">
+      <label for="username" class="col-sm-2 col-form-label">Usernme</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username" name="username" required/>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="password" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="cpassword" class="col-sm-2 col-form-label"
+        >Confirm Password</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="password"
+          class="form-control"
+          id="cpassword"
+          name="cpassword"
+          required
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="captcha" class="col-sm-2 col-form-label">Solve this : {{data.r1}} {{data.r3}} {{data.r2}} =</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="captcha" name="captcha" required/>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>
+{% endif %}
+{% endblock contents %}

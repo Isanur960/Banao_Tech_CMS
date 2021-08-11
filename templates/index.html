@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block contents %}
+
+<h1>Hey, welcome.....</h1>
+<h5>I am Isanur Sardar and This is my task-2 given by Banao Technologies</h5>
+
+<h3>Features</h3>
+<ul>
+    <li>User can Register them in <b>Sign Up</b> page . they have to provide username and password, have to confirm password and have to solve the arithmatic captcha</li>
+    <li>User can only use the username which is not taken by others before</li>
+    <li>User have to provide a AlphaNumeric password</li>
+    <li>After successfully registration user can login in Login page with their username and password</li>
+    <li>after successfully login user will be redirected to <b>Dashboard</b></li>
+    <li>Once the user logged in user will be unable to access <b>Login</b> and <b>Signup</b> page, they will see new <b>Dashboard</b>, <b>Logout</b> option and <b>username</b></li>
+    <li>Logged in usercan search other users by usernme from navbar search field</li>
+    <li>In Dashboard page Users can see his/her all posts(if any) also posts are marked public or private accordingly</li>
+    <li>In Dashboard page users are also provided with a button for <b>Add new Airticle</b></li>
+    <li>After searching username through navbar search field, user will see all user matched with their search in the <b>Search Page</b> with a button to fetch respecected user's public posts</li>
+    <li>There is a <b>Logout</b> button in the navbar, by pressing this user can logout of the session</li>
+    <li>After logout user will be redirected to Login page</li>
+</ul>
+
+{% endblock contents %}

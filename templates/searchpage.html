@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block contents %} 
+    {% if request.user.is_authenticated %}
+        {% for user in users %}
+            <div class="card">
+                <div class="card-body">
+                    {{user.username}} <a class="btn btn-sm btn-outline-primary"  href="/user-posts?id={{user.id}}" role="button">View {{user.username}}'s all posts.</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1> You are not logged in</h1>
+        <a class="btn btn-success" href="/login" role="button">Login</a>
+    {%endif%}
+{% endblock contents %}

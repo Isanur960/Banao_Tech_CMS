@@ -1,0 +1,51 @@
+{% extends "base.html" %} 
+
+{% block style %}
+ <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+{% endblock style %}
+
+{% block contents %}
+<h1>Add new airticle</h1>
+<form action="/add-airticle" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+  <div class="row mb-3">
+    <label for="title" class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">description:</label>
+    <textarea
+      class="form-control"
+      id="description"
+      name="description"
+      rows="7"
+      required
+    ></textarea>
+  </div>
+  <div class="mb-3">
+  <label for="airticle-image" class="form-label">Add a image</label>
+  <input class="form-control form-control-sm" id="airticle-image" type="file" name='airticle-image' required>
+</div>
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="public_check" name='public_check'>
+  <label class="form-check-label" for="public_check">Make Public</label>
+</div>
+<button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock contents %}
